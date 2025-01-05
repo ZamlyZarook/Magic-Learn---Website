@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Magic Learn</title>
+
+        <!-- CSS FILES -->                
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="css/templatemo-tiya-golf-club.css" rel="stylesheet">
+        
+
+    </head>
+    
+    <body>
+
+        <script>
+            function performSearch(event) {
+                event.preventDefault();
+                const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+                const sections = document.querySelectorAll('section, .section');
+                let found = false;
+                
+                // Reset previous highlights
+                document.querySelectorAll('.search-highlight').forEach(el => {
+                    el.classList.remove('search-highlight');
+                });
+                
+                sections.forEach(section => {
+                    const text = section.innerText.toLowerCase();
+                    if (text.includes(searchTerm)) {
+                        found = true;
+                        
+                        // Highlight matching text
+                        const matches = section.innerHTML.replace(
+                            new RegExp(searchTerm, 'gi'),
+                            match => `<span class="search-highlight">${match}</span>`
+                        );
+                        section.innerHTML = matches;
+                        
+                        // Scroll to the first match
+                        if (found) {
+                            const firstMatch = document.querySelector('.search-highlight');
+                            if (firstMatch) {
+                                firstMatch.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'center'
+                                });
+                            }
+                        }
+                    }
+                });
+                
+                // Show search results feedback
+                if (!found && searchTerm !== '') {
+                    alert('No results found for: ' + searchTerm);
+                }
+            }
+            </script>
+
+
+
+
+        <main>
+
+            <nav class="navbar navbar-expand-lg">                
+                <div class="container">
+                    <a class="navbar-brand d-flex align-items-center" href="index.html">
+                        <img src="images/logo.png" class="navbar-brand-image img-fluid" alt="Tiya Golf Club">
+                        <span class="navbar-brand-text">
+                            Magic Learn
+                        </span>
+                    </a>
+
+    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-lg-auto">
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#home">Home</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#about">About</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#background">Background</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#problem">Research Problem</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#team">Team</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Components</a>
+
+                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="auditorylearning.html">Auditory learning</a></li>
+                                    <li><a class="dropdown-item" href="ehancingriting.html">Enhancing Writing & Math Skills</a></li>
+                                    <li><a class="dropdown-item" href="signlanguage.html">Sign Language Translator</a></li>
+                                    <li><a class="dropdown-item" href="braille.html">Braille Learning</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="document-list.html">Documents</a>
+                            </li>
+                        </ul>
+
+                        <form class="d-flex ms-auto" onsubmit="performSearch(event)">
+                            <div class="input-group">
+                                <input type="search" id="searchInput" class="form-control" placeholder="Search..." aria-label="Search">
+                                <button class="btn btn-outline-light" type="submit">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                        
+
+                    </div>
+                    
+                </div>
+            </nav>
+
+            <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">                
+    
+
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3D405B" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+            </div>
+            
+
+            <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+
+                <div class="section-overlay"></div>
+
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-12 mb-5 mb-lg-0">
+
+                            <h3 class="cd-headline rotate-1 text-white mb-4 pb-2">
+                                <span>Empowering Education for Deaf, Mute, and Visually Impaired Children Through Innovative Learning Tools</span>
+                                <br />
+                                <span class="cd-words-wrapper">
+                                    <b class="is-visible">Auditory learning</b>
+                                    <b>Enhancing Writing & Math Skills</b>
+                                    <b>Sign Language Translator</b>
+                                    <b>Braille Learning</b>
+                                </span>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <section class="about-section section-padding" id="about">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-12 col-12 text-center">
+                            <br><br>
+                            <h2 class="mb-lg-5 mb-4">About Magic Learn</h2>
+                        </div>
+
+
+
+                        <div class="col-lg-12 col-12 me-auto mb-5 mb-lg-5">
+                            <h3 class="mb-3">Introduction</h3>
+
+                            <p>In today’s rapidly advancing digital age, technology offers remarkable opportunities for personalized learning. However, children with disabilities—especially those who are deaf, mute, or visually impaired—often face significant barriers in accessing quality education. These challenges are particularly pronounced in developing countries like Sri Lanka, where limited resources and traditional teaching methods fall short in addressing the unique needs of these children.
+                                Our project seeks to bridge this gap by developing a mobile application specifically tailored to meet the educational needs of deaf, mute, and visually impaired children. Through the integration of artificial intelligence and adaptive technologies, we aim to create an interactive and accessible learning environment that supports these children’s development in literacy, numeracy, and communication skills.    
+                                This website serves as a gateway to understanding our project’s mission, research, and the technology behind it. Join us as we work towards building a more inclusive future for special needs education in Sri Lanka.</p>
+                        </div>
+
+                        <div class="col-lg-12 col-12">
+                            <h3>Objective</h3>
+                            <p>Our mission is to develop an innovative mobile application that empowers deaf, mute, and visually impaired children in Sri Lanka with interactive, adaptive, and accessible educational tools. Through the use of AI, machine learning, and assistive technologies, our app provides tailored learning experiences, enhancing literacy, numeracy, and communication skills. We aim to bridge the educational gap, fostering a more inclusive environment where every child can thrive and reach their full potential.</p>
+                            <h3 class="mt-5">Sub Objectives</h3>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-6 text-center">
+                                    <img class="member-block-image img-fluid" style="height: 200px; width: 200px;" src="images/comp/pose_e.jpg" />
+                                    <h5>Auditory learning</h5>
+                                    <p>
+                                        Assessing the Impact of Audio Based Learning Tools on the English Language Acquisition of Visually Impaired Children Aged 4 to 8
+                                    </p>
+                                </div>
+                                <div class="col-lg-3 col-md-6 text-center">
+                                    <img class="member-block-image img-fluid" style="height: 200px; width: 200px;" src="images/comp/mes_e.jpg" />
+                                    <h5>Enhancing Writing & Math Skills</h5>
+                                    <p>
+                                        Bridge visual understanding with written language proficiency on the English Language Acquisition of Visually Impaired Children Aged 4 to 8.
+                                    </p>
+                                </div>
+                                <div class="col-lg-3 col-md-6 text-center">
+                                    <img class="member-block-image img-fluid" style="height: 200px; width: 200px;" src="images/comp/3d_e.jpg" />
+                                    <h5>Real-Time Sign Language Translator</h5>
+                                    <p>
+                                        Develop an Interactive Educational app which helps the deaf/mute children to learn ASL sign language with quizzes. 
+                                    </p>
+                                </div>
+                                <div class="col-lg-3 col-md-6 text-center">
+                                    <img class="member-block-image img-fluid" style="height: 200px; width: 200px;" src="images/comp/vr_e.jpg" />
+                                    <h5>Braille Learning</h5>
+                                    <p>
+                                        mobile application for blind students aged 4-8 to learn Braille with parental/guardian involvement​
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                       
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="section-bg-image" id="background">
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-12 col-12">
+                            <div class="section-bg-image-block">
+                                <h2 class="mb-lg-3">Background</h2>
+
+                                <p> In Sri Lanka, children with disabilities, particularly those who are deaf, mute, or visually impaired, face significant barriers in accessing quality education. Traditional teaching methods often do not address their unique needs, resulting in gaps in literacy, numeracy, and communication skills. Limited resources and a lack of adaptive learning tools further widen this gap, especially in developing countries like Sri Lanka.
+                                    Our project aims to bridge this educational divide by developing a mobile application tailored specifically for deaf, mute, and visually impaired children. Leveraging the latest advancements in artificial intelligence and assistive technologies, this app provides interactive and adaptive learning experiences that cater to the individual needs of these children. By incorporating features like voice recognition, Braille instruction, sign language support, and math quizzes, our goal is to create an inclusive and engaging educational environment.  
+                                    This initiative seeks to empower children with disabilities, giving them the tools and support they need to achieve their full potential and fostering a more inclusive future for special needs education in Sri Lanka.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+
+
+            <section class="membership-section section-padding" id="problem">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-12 col-12 text-center mx-auto mb-lg-5 mb-4">
+                            <h2>Research Problem</h2>
+                        </div>
+
+                        <ul >
+                            <li class="ms-5">Investigating the effectiveness of audio in enhancing English language learning outcomes for visually impaired children.</li>
+                            <li class="ms-5">A visual-based learning model in improving writing skills and engagement among deaf children compared to traditional text-based methods</li>
+                            <li class="ms-5">Traditional Braille learning methods often lack interactivity and fail to engage parents or guardians in the learning process, leading to challenges in literacy development for blind children.</li>
+                            <li class="ms-5">Traditional Braille learning methods often lack interactivity and fail to engage parents or guardians in the learning process, leading to challenges in literacy development for blind children.</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="events-section section-bg section-padding" id="team">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-12">
+                            <h2 class="mb-lg-3">Research Team</h2>
+                            <div class="row d-flex">
+                                <div class="col-lg-3 col-md-6 col-12">
+                                    <div class="member-block">
+                                        <div class="member-block-image-wrap">
+                                            <img src="images/members/sanvitha.png" style="height: 200px; width: 200px;" class="member-block-image img-fluid" alt="">
+        
+                                            <ul class="social-icon">
+                                                <li class="social-icon-item mb-2">
+                                                    <a href="#" class="social-icon-link bi-linkedin"></a>
+                                                </li>
+                                                <li class="email-icon-item">
+                                                    <a href="mailto:sanvitha.k@sliit.lk" class="social-icon-link bi-at"></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+        
+                                        <div class="member-block-info align-items-center">
+                                            <h5 class="pb-0 mb-0">Dr. Sanvitha Kasthuriarachchi</h5>
+                                            <p class="ms-auto pt-0 mt-0">Supervisor</p>
+                                            <p style="font-size: 12px;" class="my-0 py-0">Assistant Professor</p>
+                                            <p style="font-size: 12px;" class="my-0 py-0"><i>Information Technology</i></p>
+                                            <p style="font-size: 12px;" class="my-0 py-0"><i>Faculty Of Computing, SLIIT, Sri Lanka</i></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-6 col-12">
+                                    <div class="member-block">
+                                        <div class="member-block-image-wrap">
+                                            <img src="images/members/thisara.jpg" style="height: 200px; width: 200px;" class="member-block-image img-fluid" alt="">
+        
+                                            <ul class="social-icon">
+                                                <li class="social-icon-item mb-2">
+                                                    <a href="#" class="social-icon-link bi-linkedin"></a>
+                                                </li>
+                                                <li class="email-icon-item">
+                                                    <a href="mailto:thisara.s@sliit.lk" class="social-icon-link bi-at"></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+        
+                                        <div class="member-block-info align-items-center">
+                                            <h5 class="pb-0 mb-0">Ms. Thisara Shyamalee</h5>
+                                            <p class="ms-auto pt-0 mt-0">Co-supervisor</p>
+                                            <p style="font-size: 12px;" class="my-0 py-0">Lecturer</p>
+                                            <p style="font-size: 12px;" class="my-0 py-0"><i>Information Technology</i></p>
+                                            <p style="font-size: 12px;" class="my-0 py-0"><i>Faculty Of Computing, SLIIT, Sri Lanka</i></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-6 col-12">
+                                    <div class="member-block">
+                                        <div class="member-block-image-wrap">
+                                            <img src="images/members/ravindu.jpg" style="height: 200px; width: 200px;" class="member-block-image img-fluid" alt="">
+        
+                                            <ul class="social-icon">
+                                                <li class="social-icon-item mb-2">
+                                                    <a href="#" class="social-icon-link bi-linkedin"></a>
+                                                </li>
+                                                <li class="email-icon-item">
+                                                    <a href="mailto:it21012310@my.sliit.lk" class="social-icon-link bi-at"></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+        
+                                        <div class="member-block-info align-items-center">
+                                            <h5 class="pb-0 mb-0">Wijesundara W.M.R.L</h5>
+                                            <p class="ms-auto pt-0 mt-0">Leader</p>
+                                            <p style="font-size: 12px;" class="my-0 py-0">Undergraduate</p>
+                                            <p style="font-size: 12px;" class="my-0 py-0"><i>Information Technology</i></p>
+                                            <p style="font-size: 12px;" class="my-0 py-0"><i>Faculty Of Computing, SLIIT, Sri Lanka</i></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-6 col-12">
+                                    <div class="member-block">
+                                        <div class="member-block-image-wrap">
+                                            <img src="images/members/aadhil.jpg" style="height: 200px; width: 200px;" class="member-block-image img-fluid" alt="">
+        
+                                            <ul class="social-icon">
+                                                <li class="social-icon-item mb-2">
+                                                    <a href="#" class="social-icon-link bi-linkedin"></a>
+                                                </li>
+                                                <li class="email-icon-item">
+                                                    <a href="mailto:it21128240@my.sliit.lk" class="social-icon-link bi-at"></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+        
+                                        <div class="member-block-info align-items-center">
+                                            <h5 class="pb-0 mb-0">Aadhil M.M</h5>
+                                            <p class="ms-auto pt-0 mt-0">Member</p>
+                                            <p style="font-size: 12px;" class="my-0 py-0">Undergraduate</p>
+                                            <p style="font-size: 12px;" class="my-0 py-0"><i>Information Technology</i></p>
+                                            <p style="font-size: 12px;" class="my-0 py-0"><i>Faculty Of Computing, SLIIT, Sri Lanka</i></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-6 col-12">
+                                    <div class="member-block">
+                                        <div class="member-block-image-wrap">
+                                            <img src="images/members/sameer.jpg" style="height: 200px; width: 200px;" class="member-block-image img-fluid" alt="">
+        
+                                            <ul class="social-icon">
+                                                <li class="social-icon-item mb-2">
+                                                    <a href="#" class="social-icon-link bi-linkedin"></a>
+                                                </li>
+                                                <li class="email-icon-item">
+                                                    <a href="mailto:it21120084@my.sliit.lk" class="social-icon-link bi-at"></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+        
+                                        <div class="member-block-info align-items-center">
+                                            <h5 class="pb-0 mb-0">Sameer M.M</h5>
+                                            <p class="ms-auto pt-0 mt-0">Member</p>
+                                            <p style="font-size: 12px;" class="my-0 py-0">Undergraduate</p>
+                                            <p style="font-size: 12px;" class="my-0 py-0"><i>Information Technology</i></p>
+                                            <p style="font-size: 12px;" class="my-0 py-0"><i>Faculty Of Computing, SLIIT, Sri Lanka</i></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-6 col-12">
+                                    <div class="member-block">
+                                        <div class="member-block-image-wrap">
+                                            <img src="images/members/zamly.jpg" style="height: 200px; width: 200px;" class="member-block-image img-fluid" alt="">
+        
+                                            <ul class="social-icon">
+                                                <li class="social-icon-item mb-2">
+                                                    <a href="#" class="social-icon-link bi-linkedin"></a>
+                                                </li>
+                                                <li class="email-icon-item">
+                                                    <a href="mailto:it21091698@my.sliit.lk" class="social-icon-link bi-at"></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+        
+                                        <div class="member-block-info align-items-center">
+                                            <h5 class="pb-0 mb-0">Zamly M.Z.M</h5>
+                                            <p class="ms-auto pt-0 mt-0">Member</p>
+                                            <p style="font-size: 12px;" class="my-0 py-0">Undergraduate</p>
+                                            <p style="font-size: 12px;" class="my-0 py-0"><i>Information Technology</i></p>
+                                            <p style="font-size: 12px;" class="my-0 py-0"><i>Faculty Of Computing, SLIIT, Sri Lanka</i></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        </main>
+
+        <footer class="site-footer">
+            <div class="container pt-5">
+                <div class="row">
+
+                    <div class="col-lg-6 col-12 me-auto mb-5 mb-lg-0">
+                        <a class="navbar-brand d-flex align-items-center" href="index.html">
+                            <img src="images/logo.png" class="navbar-brand-image img-fluid" alt="">
+                            <span class="navbar-brand-text">
+                                Learn Magic
+                            </span>
+                        </a>
+                        <img src="images/WorldMap.svg" class="img-fluid" alt="">
+                    </div>
+
+                    <div class="col-lg-3 col-12">
+                        <h5 class="site-footer-title mb-4">Reach Us</h5>
+
+                        <p class="d-flex border-bottom pb-3 mb-3 me-lg-3">
+                            <span class="me-3">Email</span>
+                            learnmagic@gmail.com
+                        </p>
+
+                        
+                        <p class="copyright-text">Copyright ©2024 Learn Magic team</p>
+                    </div>
+
+                        
+
+                </div>
+            </div>
+
+        </footer>
+
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/click-scroll.js"></script>
+        <script src="js/animated-headline.js"></script>
+        <script src="js/modernizr.js"></script>
+        <script src="js/custom.js"></script>
+
+        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="searchModalLabel">Search Results</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="searchResults"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script type="module">
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+          
+            // Your web app's Firebase configuration
+            const firebaseConfig = {
+              apiKey: "AIzaSyD83CQ7JglhwBOi61OhhWfR8grkhFrKj1Y",
+              authDomain: "magic-learn-46131.firebaseapp.com",
+              projectId: "magic-learn-46131",
+              storageBucket: "magic-learn-46131.appspot.com",
+              messagingSenderId: "680860853205",
+              appId: "1:680860853205:web:4dd669dc4bc2bdae3b135c"
+            };
+          
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+          </script>
+
+    </body>
+</html>

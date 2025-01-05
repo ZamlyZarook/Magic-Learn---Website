@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Sign Language Translator</title>
+
+        <!-- CSS FILES -->                
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+        <link href="css/templatemo-tiya-golf-club.css" rel="stylesheet">
+        
+    </head>
+    
+    <body>
+
+        <script>
+            function performSearch(event) {
+                event.preventDefault();
+                const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+                const sections = document.querySelectorAll('section, .section');
+                let found = false;
+                
+                // Reset previous highlights
+                document.querySelectorAll('.search-highlight').forEach(el => {
+                    el.classList.remove('search-highlight');
+                });
+                
+                sections.forEach(section => {
+                    const text = section.innerText.toLowerCase();
+                    if (text.includes(searchTerm)) {
+                        found = true;
+                        
+                        // Highlight matching text
+                        const matches = section.innerHTML.replace(
+                            new RegExp(searchTerm, 'gi'),
+                            match => `<span class="search-highlight">${match}</span>`
+                        );
+                        section.innerHTML = matches;
+                        
+                        // Scroll to the first match
+                        if (found) {
+                            const firstMatch = document.querySelector('.search-highlight');
+                            if (firstMatch) {
+                                firstMatch.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'center'
+                                });
+                            }
+                        }
+                    }
+                });
+                
+                // Show search results feedback
+                if (!found && searchTerm !== '') {
+                    alert('No results found for: ' + searchTerm);
+                }
+            }
+            </script>
+
+        <main>
+
+            <nav class="navbar navbar-expand-lg">                
+                <div class="container">
+                    <a class="navbar-brand d-flex align-items-center" href="index.html">
+                        <img src="images/logo.png" class="navbar-brand-image img-fluid" alt="Tiya Golf Club">
+                        <span class="navbar-brand-text">
+                            Magic Learn
+                        </span>
+                    </a>
+    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-lg-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#home">Home</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#about">About</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#background">Background</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#problem">Research Problem</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#team">Team</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Components</a>
+
+                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                    <li><a class="dropdown-item active" href="auditorylearning.html">Auditory learning</a></li>
+                                    <li><a class="dropdown-item active" href="ehancingriting.html">Enhancing Writing & Math Skills</a></li>
+                                    <li><a class="dropdown-item " href="signlanguage.html">Sign Language Translator</a></li>
+                                    <li><a class="dropdown-item active" href="braille.html">Braille Learning</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="document-list.html">Documents</a>
+                            </li>
+                        </ul>
+
+                        <form class="d-flex ms-auto" onsubmit="performSearch(event)">
+                            <div class="input-group">
+                                <input type="search" id="searchInput" class="form-control" placeholder="Search..." aria-label="Search">
+                                <button class="btn btn-outline-light" type="submit">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            
+
+            <section class="hero-section-sign hero-50 d-flex justify-content-center align-items-center" id="section_1">
+
+                <div class="section-overlay">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-12 text-white">
+                            <br><br><br><br>
+                            <h1 class="text-white mb-0 pb-2">Real-Time Sign Language Translator for Deaf/Mute Kids </h1>
+                            <p class="text-white">by <b>Sameer M.M </b>(IT21120084)</p>
+                            <p class="text-white"><small><i>BSc (Hons) in Information Technology Specializing in Information Technology​
+                                <br>Sri Lanka Institute of Information Technology
+                                </i></small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            </section>
+
+
+            <section class="events-section events-detail-section section-padding" id="section_2">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-8 col-12 mx-auto">
+
+                            <center><h2 class="mb-0 mt-5">Intoduction</h2></center>
+                            <p>My part focuses on developing a Real-Time Sign Language Translator for Deaf/Mute children, specifically tailored for Sri Lankan audiences. By integrating American Sign Language (ASL) into the learning process, the application aims to bridge communication gaps and enhance language acquisition through interactive visual aids, including images and videos for both letters and words.</p>
+                        </div>
+                        <div class="col-lg-10 col-md-8 col-12 mx-auto">
+                            <br><br>
+                            <center><h2>Research Problem</h2></center>
+                            <p>My research problem revolves around the challenge of effectively teaching American Sign Language (ASL) to Sri Lankan deaf children who are primarily familiar with local sign language. The goal is to develop a Real-Time Sign Language Translator that accommodates their learning needs, enhancing communication and language skills through accessible and engaging methods.</p>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <center><h2>Sub Objectives</h2></center>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <center><h5 class="card-title" >Sub Objective 1</h5></center>
+                                    <p class="card-text">Dataset Collection: Collect or identify a diverse dataset of ASL hand signs, ensuring it includes various signs, contexts, and variations to enhance model accuracy and robustness.<br><br><br></p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <center><h5 class="card-title" >Sub Objective 2</h5></center>
+                                    <p class="card-text">Deep Learning Model Development: Design and implement a deep learning model architecture suitable for ASL sign recognition, focusing on optimizing performance through techniques such as convolutional neural networks (CNNs).</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <center><h5 class="card-title" >Sub Objective 3</h5></center>
+                                    <p class="card-text">User-Friendly Interface: Develop a user-friendly interface for the application, allowing users to upload images and receive predictions, ensuring accessibility and ease of use for both children and educators.<br><br></p>
+                                </div>
+                            </div>
+                        </div>
+                     
+                        <div class="col-md-3">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <center><h5 class="card-title" >Sub Objective 4</h5></center>
+                                <p class="card-text">Educational Content Integration: Integrate educational content that provides context and usage examples for each ASL sign, enhancing users' understanding and facilitating effective learning.<br><br></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <br><br><br><br>
+                    
+                    <center><h2 class="card-title" >Datasets</h2><br></center>
+                        <img class="d-block w-75" src="images/Sameer/sign_dataset.png" style="margin: auto;" alt="First slide">
+                    <br><br><br><br>
+                    <center><h2 class="card-title" >Wireframes</h2><br></center>
+                    <img class="d-block w-75" src="images/Sameer/sign wireframes.jpg" style="margin: auto;" alt="Second slide">
+                    <center><h2 class="card-title" >UI Designs</h2><br></center>
+                        <img class="d-block w-75" src="images/Sameer/sign_mokup.jpg" style="margin: auto;" alt="First slide">
+                    <br><br><br><br>
+                    <div class="carousel-caption d-none d-md-block">   
+            </section>
+        </main>
+
+        <footer style="padding-bottom: 40px; position: relative; background-color: #3D405B;">
+            <div class="container pt-5">
+                <div class="row">
+
+                    <div class="col-lg-6 col-12 me-auto mb-5 mb-lg-0">
+                        <a class="navbar-brand d-flex align-items-center" href="index.html">
+                            <img src="images/logo.png" class="navbar-brand-image img-fluid" alt="">
+                            <span class="navbar-brand-text" style="color: white;">
+                                Learn Magic
+                            </span>
+                        </a>
+                        <img src="images/WorldMap.svg" style="background-color: white; border-radius: 2rem; margin-top: 20px;" class="img-fluid" alt="">
+                    </div>
+
+                    <div class="col-lg-3 col-12">
+                        <h5 class="site-footer-title mb-4">Reach Us</h5>
+
+                        <p class="d-flex border-bottom pb-3 mb-3 me-lg-3">
+                            <span class="me-3">Email</span>
+                            learnmagic@gmail.com
+                        </p>
+                        
+                        <p class="copyright-text" style="color: white;">Copyright ©2024 Learn Magic team</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/custom.js"></script>
+
+    </body>
+</html>

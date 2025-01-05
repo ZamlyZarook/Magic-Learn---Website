@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Braille Learning</title>
+
+        <!-- CSS FILES -->                
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+        <link href="css/templatemo-tiya-golf-club.css" rel="stylesheet">
+        
+    </head>
+    
+    <body>
+
+        <script>
+            function performSearch(event) {
+                event.preventDefault();
+                const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+                const sections = document.querySelectorAll('section, .section');
+                let found = false;
+                
+                // Reset previous highlights
+                document.querySelectorAll('.search-highlight').forEach(el => {
+                    el.classList.remove('search-highlight');
+                });
+                
+                sections.forEach(section => {
+                    const text = section.innerText.toLowerCase();
+                    if (text.includes(searchTerm)) {
+                        found = true;
+                        
+                        // Highlight matching text
+                        const matches = section.innerHTML.replace(
+                            new RegExp(searchTerm, 'gi'),
+                            match => `<span class="search-highlight">${match}</span>`
+                        );
+                        section.innerHTML = matches;
+                        
+                        // Scroll to the first match
+                        if (found) {
+                            const firstMatch = document.querySelector('.search-highlight');
+                            if (firstMatch) {
+                                firstMatch.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'center'
+                                });
+                            }
+                        }
+                    }
+                });
+                
+                // Show search results feedback
+                if (!found && searchTerm !== '') {
+                    alert('No results found for: ' + searchTerm);
+                }
+            }
+            </script>
+
+        <main>
+
+            <nav class="navbar navbar-expand-lg">                
+                <div class="container">
+                    <a class="navbar-brand d-flex align-items-center" href="index.html">
+                        <img src="images/logo.png" class="navbar-brand-image img-fluid" alt="Tiya Golf Club">
+                        <span class="navbar-brand-text">
+                            Magic Learn
+                        </span>
+                    </a>
+    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-lg-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#home">Home</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#about">About</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#background">Background</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#problem">Research Problem</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#team">Team</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Components</a>
+
+                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                    <li><a class="dropdown-item active" href="auditorylearning.html">Auditory learning</a></li>
+                                    <li><a class="dropdown-item active" href="ehancingriting.html">Enhancing Writing & Math Skills</a></li>
+                                    <li><a class="dropdown-item active" href="signlanguage.html">Sign Language Translator</a></li>
+                                    <li><a class="dropdown-item" href="braille.html">Braille Learning</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="document-list.html">Documents</a>
+                            </li>
+                        </ul>
+
+                        <form class="d-flex ms-auto" onsubmit="performSearch(event)">
+                            <div class="input-group">
+                                <input type="search" id="searchInput" class="form-control" placeholder="Search..." aria-label="Search">
+                                <button class="btn btn-outline-light" type="submit">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            
+
+            <section class="hero-section-braille hero-50 d-flex justify-content-center align-items-center" id="section_1">
+
+                <div class="section-overlay">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-12 text-white">
+                            <br><br><br><br>
+                            <h1 class="text-white mb-0 pb-2">Interactive Braille Learning and Quizzes for Visually Impaired Kids</h1>
+                            <p class="text-white">by <b>Zamly M.Z.M </b>(IT21091698)</p>
+                            <p class="text-white"><small><i>BSc (Hons) in Information Technology Specializing in Information Technology​
+                                <br>Sri Lanka Institute of Information Technology
+                                </i></small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            </section>
+
+
+            <section class="events-section events-detail-section section-padding" id="section_2">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-8 col-12 mx-auto">
+
+                            <center><h2 class="mb-0 mt-5">Intoduction</h2></center>
+                            <p> Welcome to the official page of my Final Year Research Project at Sri Lanka Institute of Information Technology (SLIIT). In this project my component is aims to make Braille learning mobile application for visually impaired children, with an additional aim to help guardians understand Braille letters.</p>
+                        </div>
+                        <div class="col-lg-10 col-md-8 col-12 mx-auto">
+                            <br><br>
+                            <center><h2>Research Problem</h2></center>
+                            <p>The primary research problem addressed by this project is the lack of accessible and interactive tools for teaching Braille to visually impaired children, especially in a way that also involves their guardians. Traditional Braille education methods are often limited to printed materials or in-person instruction, 
+                                which can be challenging for children to engage with independently. Additionally, guardians may struggle to support their child's learning if they are unfamiliar with Braille. This project aims to solve these challenges by providing a mobile application that offers interactive voice-guided lessons and quizzes to enhance the learning experience. 
+                                The application also integrates image-based Braille recognition, allowing guardians to actively participate by uploading answers, with real-time validation and feedback. This combination of technology and education bridges the gap in accessible Braille learning while promoting parent-child involvement.</p>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <center><h2>Sub Objectives</h2></center>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <center><h5 class="card-title" >Sub Objective 1</h5></center>
+                                    <p class="card-text">Create a mobile application with voice-guided lessons that teach Braille letters to visually impaired children in an engaging and accessible way.  </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <center><h5 class="card-title" >Sub Objective 2</h5></center>
+                                    <p class="card-text">Design the app to facilitate the participation of guardians by providing simple explanations of Braille letters and allowing them to assist in quizzes</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <center><h5 class="card-title" >Sub Objective 3</h5></center>
+                                    <p class="card-text">Utilize image processing techniques to accurately detect Braille patterns from uploaded answers and provide real-time feedback on quiz results.</p>
+                                </div>
+                            </div>
+                        </div>
+                     
+                        <div class="col-md-3">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <center><h5 class="card-title" >Sub Objective 4</h5></center>
+                                <p class="card-text">Host the application on AWS Cloud to guarantee high availability, scalability, and smooth performance for users.<br><br></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <br><br><br><br>
+                    
+                    <center><h2 class="card-title" >Architechture Diagram</h2><br></center>
+                        <img class="d-block w-75" src="images/zamly/braille_methodology.png" style="margin: auto;" alt="First slide">
+                    <br><br><br><br>
+                    <center><h2 class="card-title" >UI Designs</h2><br></center>
+                    <img class="d-block w-75" src="images/zamly/ui_braille.jpg" style="margin: auto;" alt="Second slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        
+            </section>
+        </main>
+
+        <footer style="padding-bottom: 40px; position: relative; background-color: #3D405B;">
+            <div class="container pt-5">
+                <div class="row">
+
+                    <div class="col-lg-6 col-12 me-auto mb-5 mb-lg-0">
+                        <a class="navbar-brand d-flex align-items-center" href="index.html">
+                            <img src="images/logo.png" class="navbar-brand-image img-fluid" alt="">
+                            <span class="navbar-brand-text" style="color: white;">
+                                Learn Magic
+                            </span>
+                        </a>
+                        <img src="images/WorldMap.svg" style="background-color: white; border-radius: 2rem; margin-top: 20px;" class="img-fluid" alt="">
+                    </div>
+
+                    <div class="col-lg-3 col-12">
+                        <h5 class="site-footer-title mb-4">Reach Us</h5>
+
+                        <p class="d-flex border-bottom pb-3 mb-3 me-lg-3">
+                            <span class="me-3">Email</span>
+                            learnmagic@gmail.com
+                        </p>
+                        
+                        <p class="copyright-text" style="color: white;">Copyright ©2024 Learn Magic team</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/custom.js"></script>
+
+    </body>
+</html>
